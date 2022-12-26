@@ -9,7 +9,8 @@
     },
     "fields": {
       "title": "Title",
-      "content": "Content"
+      "content": "Content",
+      "thumbnail": "Thumbnail"
     },
     "message": {
       "error": {

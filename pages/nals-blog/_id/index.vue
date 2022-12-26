@@ -41,14 +41,6 @@ export default Vue.extend({
       },
     }
   },
-
-  created() {
-    // this.fetchData()
-  },
-
-  methods: {
-    async fetchData() {},
-  },
 })
 </script>
 

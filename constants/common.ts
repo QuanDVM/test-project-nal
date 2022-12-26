@@ -16,76 +16,39 @@ export interface ConstantCommonProps {
     SORT_BY: string
   }
 
-  DATE_TIME_SLASH: string
-
-  DATE_TIME_SECOND_FORMAT: string
-
-  DATE_TIME_FORMAT: string
-
-  DATE_TIME_FORMAT_HYPEN: string
-
-  PAGE_SIZES: Array<number>
-
-  DATE_FORMAT: string
-
-  CAPITAL_CALLER_REGISTER_IMAGE_UPLOAD: {
+  IMAGE_UPLOAD: {
     FILE_SIZE_LIMIT: number
     FILE_TYPE: string
   }
 
-  CAPITAL_CALLER_PROJECT_FILE_UPLOAD: {
-    FILE_SIZE_LIMIT: number
-    FILE_TYPE: string
-  }
-
-  RANGE_MONTH: number
-  PREF_ID_DEFAULT: number
-  PROJECT_TYPE_DEFAULT: number
+  IMAGE_UPLOAD_DEFAULT: string
 }
 
 const constants: ConstantCommonProps = {
   PAGE_DEFAULT: {
-    TOTAL: 10,
+    TOTAL: 0,
     LIMIT: 9,
     CURRENT_PAGE: 1,
   },
 
   BLOG: {
-    SORT_BY: 'title',
+    SORT_BY: 'id',
   },
 
-  DATE_TIME_SLASH: 'YYYY/MM/DD',
-
-  DATE_TIME_SECOND_FORMAT: 'YYYY/MM/DD HH:mm:ss',
-
-  DATE_TIME_FORMAT_HYPEN: 'YYYY-MM-DD HH:mm',
+  IMAGE_UPLOAD: {
+    FILE_SIZE_LIMIT: 5,
+    FILE_TYPE: 'image/jpeg,image/jpg,image/png',
+  },
 
   LOCALE: 'ja',
-
-  DATE_TIME_FORMAT: 'YYYY/MM/DD hh:mm',
-
-  DATE_FORMAT: 'YYYY-MM-DD',
-
-  PAGE_SIZES: [50, 100, 200],
 
   SORT_ORDER: {
     ASC: 'asc',
     DESC: 'desc',
   },
 
-  CAPITAL_CALLER_REGISTER_IMAGE_UPLOAD: {
-    FILE_SIZE_LIMIT: 10,
-    FILE_TYPE: 'image/png,image/jpeg',
-  },
-
-  CAPITAL_CALLER_PROJECT_FILE_UPLOAD: {
-    FILE_SIZE_LIMIT: 5,
-    FILE_TYPE: 'application/pdf,image/png,image/jpeg',
-  },
-
-  RANGE_MONTH: 12,
-  PREF_ID_DEFAULT: 0,
-  PROJECT_TYPE_DEFAULT: 0,
+  IMAGE_UPLOAD_DEFAULT:
+    '"https://cdn.tgdd.vn//GameApp/1321010//Talon0-800x450.jpg',
 }
 
 export default constants

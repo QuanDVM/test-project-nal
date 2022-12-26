@@ -41,11 +41,12 @@
           </v-col>
         </v-row>
 
-        <div class="nals-blog__main">
+        <div v-if="paginationLength" class="nals-blog__main">
           <v-pagination
             v-model="pageInfo.currentPage"
             :length="paginationLength"
             :total-visible="pageInfo.total"
+            @change="fetchData"
           />
         </div>
       </v-card>
@@ -91,15 +92,15 @@ export default Vue.extend({
       orders: [
         {
           value: this.Constants.common.SORT_ORDER.ASC,
-          text: 'last',
+          text: 'new',
         },
         {
           value: this.Constants.common.SORT_ORDER.DESC,
-          text: 'new',
+          text: 'last',
         },
       ],
 
-      orderSelected: this.Constants.common.SORT_ORDER.ASC,
+      orderSelected: this.Constants.common.SORT_ORDER.DESC,
       pageInfo: {
         total: this.Constants.common.PAGE_DEFAULT.TOTAL,
         limit: this.Constants.common.PAGE_DEFAULT.LIMIT,
@@ -113,6 +114,14 @@ export default Vue.extend({
   computed: {
     paginationLength(): number {
       return Math.ceil(this.pageInfo.total / this.pageInfo.limit)
+    },
+  },
+
+  watch: {
+    'pageInfo.currentPage': {
+      handler() {
+        this.fetchData()
+      },
     },
   },
 
@@ -132,13 +141,15 @@ export default Vue.extend({
           ...(this.form.search && { q: this.form.search }),
         })) as any
 
-        this.pageInfo = {
-          ...this.pageInfo,
-          ...{
-            total: Number(headers.xTotalCount),
-            limit: this.Constants.common.PAGE_DEFAULT.LIMIT,
-          },
-        }
+        console.log(headers)
+        if (!this.pageInfo.total)
+          this.pageInfo = {
+            ...this.pageInfo,
+            ...{
+              total: Number(headers.xTotalCount),
+              limit: this.Constants.common.PAGE_DEFAULT.LIMIT,
+            },
+          }
 
         this.blogs = data
       } catch (error: any) {

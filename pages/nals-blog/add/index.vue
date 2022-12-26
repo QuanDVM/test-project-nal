@@ -42,7 +42,8 @@ export default Vue.extend({
         await this.$repo.blog.addBlog({
           title: this.form.title,
           content: this.form.content,
-          imageUrl: 'https://cdn.tgdd.vn//GameApp/1321010//Talon0-800x450.jpg',
+          imageUrl:
+            this.form.imageUrl || this.Constants.common.IMAGE_UPLOAD_DEFAULT,
         })
 
         this.$router.push(this.Constants.routePage.BLOG_LIST)

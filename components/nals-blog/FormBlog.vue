@@ -17,6 +17,19 @@
             :rules="rules.content"
           />
         </form-item>
+
+        <form-item :label="$t('common.fields.thumbnail')">
+          <div>
+            <v-file-input
+              v-model="fileSelect"
+              :accept="Constants.common.IMAGE_UPLOAD.FILE_TYPE"
+              label="File input"
+            ></v-file-input>
+          </div>
+          <div v-if="formBlog.imageUrl">
+            <v-img height="200px" :src="formBlog.imageUrl"> </v-img>
+          </div>
+        </form-item>
         <div class="nals-form-blog__action">
           <the-button :loading="loading" color="primary" @click="submit">
             {{ textButton }}
@@ -34,6 +47,7 @@ import { Blog } from '@/models/blog'
 interface DataProps {
   loading: false
   formValid: false
+  fileSelect: File | null
 }
 
 export default Vue.extend({
@@ -51,6 +65,7 @@ export default Vue.extend({
     return {
       loading: false,
       formValid: false,
+      fileSelect: null,
     }
   },
 
@@ -89,6 +104,23 @@ export default Vue.extend({
       set(val: Blog) {
         this.$emit('update:blog', val)
       },
+    },
+  },
+
+  watch: {
+    fileSelect: {
+      handler(val) {
+        console.log(val)
+        const reader = new FileReader()
+
+        reader.addEventListener('load', () => {
+          this.formBlog.imageUrl = reader.result as string
+        })
+
+        reader.readAsDataURL(val)
+      },
+
+      deep: true,
     },
   },
 
