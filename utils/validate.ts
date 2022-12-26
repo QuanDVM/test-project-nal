@@ -5,12 +5,11 @@ export interface UtilValidateProps {
 /**
  * Validate required
  * @param value
- * @param field
  * @param message
  * @returns
  */
 const required = (value: string, message: string) => {
-  return value?.length || message
+  return !!value?.length || message
 }
 
 const validateRules: UtilValidateProps = {

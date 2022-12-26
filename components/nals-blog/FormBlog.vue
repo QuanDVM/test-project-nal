@@ -83,7 +83,7 @@ export default Vue.extend({
           (value: string) =>
             this.Utils.validate.required(
               value,
-              this.$t('common.fields.title').toString()
+              this.$t('common.message.error.required').toString()
             ),
         ],
 
@@ -91,7 +91,7 @@ export default Vue.extend({
           (value: string) =>
             this.Utils.validate.required(
               value,
-              this.$t('common.fields.content').toString()
+              this.$t('common.message.error.required').toString()
             ),
         ],
       }

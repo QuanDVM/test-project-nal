@@ -54,7 +54,6 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '@/plugins/apexchart', ssr: false },
     '@/plugins/lodash',
     '@/plugins/string-format',
     '@/plugins/constants',
