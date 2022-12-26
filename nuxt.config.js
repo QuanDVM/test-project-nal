@@ -42,10 +42,6 @@ export default {
         rel: 'stylesheet',
         href: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
       },
-      {
-        rel: 'stylesheet',
-        href: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css',
-      },
     ],
   },
 
@@ -95,21 +91,6 @@ export default {
     '@nuxtjs/style-resources',
     'cookie-universal-nuxt',
   ],
-
-  firebase: {
-    config: {
-      apiKey: 'AIzaSyD8t6WRADPJswpMNpIwd_lbeCHXBcvJPpU',
-      authDomain: 'vue-firebase-chat-d8059.firebaseapp.com',
-      projectId: 'vue-firebase-chat-d8059',
-      storageBucket: 'vue-firebase-chat-d8059.appspot.com',
-      messagingSenderId: '468609987635',
-      appId: '1:468609987635:web:6f77cb9a2ef2f7063a5f46',
-      measurementId: 'G-Q75VZ12NJW',
-    },
-    services: {
-      auth: true, // Just as example. Can be any other service.
-    },
-  },
 
   i18n: {
     locales: locales.map((locale) => ({
