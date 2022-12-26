@@ -21,7 +21,7 @@ export default Vue.extend({
 
   async asyncData({ $repo, params, error }) {
     try {
-      const data = await $repo.blog.getDetailBlog(params.id)
+      const { data } = await $repo.blog.getDetailBlog(params.id)
 
       return {
         blog: data,

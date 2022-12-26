@@ -1,9 +1,5 @@
 export interface UtilValidateProps {
-  required: (
-    value: string | number | Array<any> | boolean,
-    field?: string,
-    message?: string
-  ) => boolean | string
+  required: (value: string, message: string) => boolean | string
 }
 
 /**
@@ -13,22 +9,8 @@ export interface UtilValidateProps {
  * @param message
  * @returns
  */
-const required = (
-  value: string | number | Array<any> | boolean,
-  field?: string,
-  message?: string
-) => {
-  const contentMessage = field ? 'common.message.error.required' : message
-
-  if (typeof value === 'boolean') {
-    return value || contentMessage
-  }
-
-  return (
-    (typeof value === 'number'
-      ? value && !!String(value)?.length
-      : !!value?.length) || contentMessage
-  )
+const required = (value: string, message: string) => {
+  return value?.length || message
 }
 
 const validateRules: UtilValidateProps = {

@@ -10,11 +10,11 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { Blog } from '@/models/blog'
+import { BlogBase } from '@/models/blog'
 import FormBlog from '@/components/nals-blog/FormBlog.vue'
 
 interface DataProps {
-  form: Blog
+  form: BlogBase
   loading: boolean
 }
 
@@ -25,7 +25,6 @@ export default Vue.extend({
   data(): DataProps {
     return {
       form: {
-        id: 0,
         title: '',
         content: '',
         imageUrl: '',

@@ -23,11 +23,12 @@
             <v-file-input
               v-model="fileSelect"
               :accept="Constants.common.IMAGE_UPLOAD.FILE_TYPE"
-              label="File input"
+              @click:clear="clearFileUpload"
             ></v-file-input>
           </div>
           <div v-if="formBlog.imageUrl">
-            <v-img height="200px" :src="formBlog.imageUrl"> </v-img>
+            <v-img class="nals-form-blog__image" :src="formBlog.imageUrl">
+            </v-img>
           </div>
         </form-item>
         <div class="nals-form-blog__action">
@@ -45,7 +46,6 @@ import Vue, { PropType } from 'vue'
 import { Blog } from '@/models/blog'
 
 interface DataProps {
-  loading: false
   formValid: false
   fileSelect: File | null
 }
@@ -59,11 +59,12 @@ export default Vue.extend({
       type: Object as PropType<Blog>,
       required: true,
     },
+
+    loading: Boolean,
   },
 
   data(): DataProps {
     return {
-      loading: false,
       formValid: false,
       fileSelect: null,
     }
@@ -110,7 +111,8 @@ export default Vue.extend({
   watch: {
     fileSelect: {
       handler(val) {
-        console.log(val)
+        if (!val) return
+
         const reader = new FileReader()
 
         reader.addEventListener('load', () => {
@@ -133,6 +135,10 @@ export default Vue.extend({
       if (!this.formValid) return
 
       this.$emit('submit')
+    },
+
+    clearFileUpload() {
+      this.formBlog.imageUrl = ''
     },
   },
 })

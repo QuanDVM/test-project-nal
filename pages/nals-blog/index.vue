@@ -4,7 +4,7 @@
       <the-heading>{{ $t('nalsBlogPage.heading') }}</the-heading>
 
       <div>
-        <the-form ref="form" class="tw-mt-6">
+        <the-form ref="form" class="mt-6">
           <the-text-field
             v-model="form.search"
             :maxlength="255"
@@ -92,7 +92,7 @@ export default Vue.extend({
       orders: [
         {
           value: this.Constants.common.SORT_ORDER.ASC,
-          text: 'new',
+          text: 'old',
         },
         {
           value: this.Constants.common.SORT_ORDER.DESC,

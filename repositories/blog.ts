@@ -22,16 +22,24 @@ const addBlog = (payload: Blog) =>
 const getDetailBlog = (id: string | number) =>
   $axios.get(format(RouteApi.BLOG_DETAIL, { id })) as Promise<ApiResponse<Blog>>
 
+const updateBlog = (id: string | number, payload: Blog) =>
+  $axios.put(
+    format(RouteApi.BLOG_DETAIL, { id }),
+    payload
+  ) as Promise<ApiResponse>
+
 export type RepoBlogProps = {
   getBlogList: (payload: BlogPayload) => Promise<ApiResponse<Array<Blog>>>
   addBlog: (payload: Blog) => Promise<ApiResponse>
   getDetailBlog: (id: string | number) => Promise<ApiResponse<Blog>>
+  updateBlog: (id: string | number, payload: Blog) => Promise<ApiResponse>
 }
 
 const repository: RepoBlogProps = {
   getBlogList,
   addBlog,
   getDetailBlog,
+  updateBlog,
 }
 
 export default repository

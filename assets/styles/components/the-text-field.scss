@@ -13,7 +13,7 @@
   }
 
   &--is-disabled {
-    @apply tw-bg-black tw-bg-opacity-[0.06];
+    @apply bg-black bg-opacity-[0.06];
 
     border: 0;
 
@@ -24,7 +24,7 @@
         }
 
         input {
-          @apply tw-text-black tw-text-opacity-[0.87];
+          @apply text-black text-opacity-[0.87];
         }
       }
     }

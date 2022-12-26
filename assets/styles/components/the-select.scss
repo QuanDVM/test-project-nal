@@ -15,7 +15,7 @@
       }
 
       &--is-disabled {
-        @apply tw-bg-black tw-bg-opacity-[0.06] tw-text-black #{!important};
+        @apply bg-black bg-opacity-[0.06] text-black #{!important};
 
         opacity: 0.87;
         border: none;
@@ -25,11 +25,11 @@
             fieldset {
               border: none;
 
-              @apply tw-bg-black tw-bg-opacity-[0.06] tw-text-black;
+              @apply bg-black bg-opacity-[0.06] text-black;
             }
 
             input {
-              @apply tw-text-black tw-text-opacity-[0.87];
+              @apply text-black text-opacity-[0.87];
             }
           }
         }
@@ -37,7 +37,7 @@
         .v-select {
           &__selection {
             &--disabled {
-              @apply tw-text-black #{!important};
+              @apply text-black #{!important};
             }
           }
         }

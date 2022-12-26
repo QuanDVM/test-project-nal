@@ -1,15 +1,10 @@
 <template>
-  <div :class="['form-item', { 'form-item--col': col }]">
-    <div
-      :class="[
-        'form-item__label',
-        { 'form-item__label--spacing': labelSpacing },
-      ]"
-    >
+  <div class="form-item">
+    <div class="form-item__label">
       <slot name="label">
         <span>{{ label }}</span>
       </slot>
-      <span v-if="required" class="tw-text-primary">{{
+      <span v-if="required" class="text-primary">{{
         $t('common.asterisk')
       }}</span>
     </div>
@@ -33,10 +28,6 @@ export default Vue.extend({
     },
 
     required: Boolean,
-
-    labelSpacing: Boolean,
-
-    col: Boolean,
   },
 })
 </script>
