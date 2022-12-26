@@ -1,8 +1,5 @@
 <template>
   <v-form ref="form" v-bind="$attrs" v-on="$listeners">
-    <v-alert v-show="isShowAlert" class="tw-mt-3 tw-mb-3" text color="error">
-      {{ $t('common.messages.messagesErrorConfirm') }}
-    </v-alert>
     <slot v-for="(_, name) in $slots" :slot="name" :name="name" />
     <template
       v-for="(_, name) in $scopedSlots"
