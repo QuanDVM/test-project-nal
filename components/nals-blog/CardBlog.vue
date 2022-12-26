@@ -1,7 +1,7 @@
 <template>
   <v-card class="nals-card-blog">
     <v-img height="200px" :src="item.imageUrl" class="nals-card-blog__image">
-      <text-ellipsis inline class="nals-card-blog__title text-white">{{
+      <text-ellipsis inline class="nals-card-blog__title">{{
         item.title
       }}</text-ellipsis>
     </v-img>

@@ -82,27 +82,11 @@ export default {
     locales: ['ja'],
   },
 
-  firebase: {
-    config: {
-      apiKey: 'AIzaSyD8t6WRADPJswpMNpIwd_lbeCHXBcvJPpU',
-      authDomain: 'vue-firebase-chat-d8059.firebaseapp.com',
-      projectId: 'vue-firebase-chat-d8059',
-      storageBucket: 'vue-firebase-chat-d8059.appspot.com',
-      messagingSenderId: '468609987635',
-      appId: '1:468609987635:web:6f77cb9a2ef2f7063a5f46',
-      measurementId: 'G-Q75VZ12NJW',
-    },
-    services: {
-      auth: true, // Just as example. Can be any other service.
-    },
-  },
-
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/i18n',
-    '@nuxtjs/firebase',
     '@nuxtjs/style-resources',
     'cookie-universal-nuxt',
   ],
