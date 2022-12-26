@@ -1,9 +1,10 @@
 import { LoDashStatic } from 'lodash'
+import { NuxtCookies } from 'cookie-universal-nuxt'
+import format from 'string-format'
+import numeral from 'numeral'
 import { ConstantsProps } from '@/constants'
 import { RepositoryProps } from '@/repositories'
-import { NuxtCookies } from 'cookie-universal-nuxt'
 import { UtilsProps } from '@/utils'
-import numeral from 'numeral'
 
 declare module 'vue/types/vue' {
   interface Vue {
@@ -12,6 +13,7 @@ declare module 'vue/types/vue' {
     Utils: UtilsProps
     $cookies: NuxtCookies
     $numeral: typeof numeral
+    $format: typeof format
     $repo: RepositoryProps
   }
 }
@@ -24,16 +26,7 @@ declare module 'vuex/types/index' {
     Utils: UtilsProps
     Constants: ConstantsProps
     $repo: RepositoryProps
-  }
-}
-
-declare module '@nuxt/types' {
-  interface Context {
-    $_: LoDashStatic
-    $cookies: NuxtCookies
-    Utils: UtilsProps
     $numeral: typeof numeral
-    Constants: ConstantsProps
-    $repo: RepositoryProps
+    $format: typeof format
   }
 }

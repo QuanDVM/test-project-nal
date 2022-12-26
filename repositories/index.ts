@@ -1,11 +1,11 @@
-import test, { RepoTestProps } from '@/repositories/test'
+import blog, { RepoBlogProps } from '~/repositories/blog'
 
 export type RepositoryProps = {
-  test: RepoTestProps
+  blog: RepoBlogProps
 }
 
 const repositories: RepositoryProps = {
-  test,
+  blog,
 }
 
 export default repositories
