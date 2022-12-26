@@ -1,9 +1,11 @@
 export interface ConstantRouteApiProps {
-  API_TEST: string
+  BLOG: string
+  BLOG_DETAIL: string
 }
 
 const routeApi: ConstantRouteApiProps = {
-  API_TEST: '/todos/1',
+  BLOG: '/blog',
+  BLOG_DETAIL: '/blog/{id}',
 }
 
 export default routeApi

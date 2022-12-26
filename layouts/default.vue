@@ -1,34 +1,17 @@
 <template>
   <v-app light>
-    <nuxt />
+    <div class="layout-default">
+      <nuxt />
+    </div>
   </v-app>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   name: 'DefaultLayout',
-  data() {
-    return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
-      items: [
-        {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/',
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire',
-        },
-      ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js',
-    }
-  },
 }
 </script>
+
+<style lang="scss" scoped>
+@import '@/assets/styles/layout/default/index.scss';
+</style>
