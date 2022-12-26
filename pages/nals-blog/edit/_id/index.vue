@@ -1,13 +1,15 @@
 <template>
   <div class="nals-blog">
     <the-container>
-      <the-heading>{{ $t('nalsBlogEditPage.heading') }}</the-heading>
+      <the-card>
+        <the-heading>{{ $t('nalsBlogEditPage.heading') }}</the-heading>
 
-      <form-blog
-        :blog.sync="form"
-        :loading="loading"
-        @submit="update"
-      ></form-blog>
+        <form-blog
+          :blog.sync="form"
+          :loading="loading"
+          @submit="update"
+        ></form-blog>
+      </the-card>
     </the-container>
   </div>
 </template>

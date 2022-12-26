@@ -82,6 +82,21 @@ export default {
     locales: ['ja'],
   },
 
+  firebase: {
+    config: {
+      apiKey: 'AIzaSyD8t6WRADPJswpMNpIwd_lbeCHXBcvJPpU',
+      authDomain: 'vue-firebase-chat-d8059.firebaseapp.com',
+      projectId: 'vue-firebase-chat-d8059',
+      storageBucket: 'vue-firebase-chat-d8059.appspot.com',
+      messagingSenderId: '468609987635',
+      appId: '1:468609987635:web:6f77cb9a2ef2f7063a5f46',
+      measurementId: 'G-Q75VZ12NJW',
+    },
+    services: {
+      auth: true, // Just as example. Can be any other service.
+    },
+  },
+
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
@@ -117,13 +132,6 @@ export default {
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
     baseURL: process.env.NUXT_APP_BASE_URL_API,
-  },
-
-  publicRuntimeConfig: {
-    fbShareLink: process.env.NUXT_APP_FACEBOOK_SHARE_LINK,
-    twShareLink: process.env.NUXT_APP_TWITTER_SHARE_LINK,
-    lineShareLink: process.env.NUXT_APP_LINE_SHARE_LINK,
-    appURL: process.env.NUXT_APP_BASE_URL,
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify

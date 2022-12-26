@@ -1,9 +1,11 @@
 <template>
-  <div class="nals-blog">
+  <div class="nals-blog-detail">
     <the-container>
-      <the-heading>{{ blog.title }}</the-heading>
+      <the-card class="nals-blog-detail__main">
+        <the-heading>{{ blog.title }}</the-heading>
 
-      <p>{{ blog.content }}</p>
+        <p>{{ blog.content }}</p>
+      </the-card>
     </the-container>
   </div>
 </template>

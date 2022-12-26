@@ -1,5 +1,6 @@
 .layout-default {
   padding: 12px 0;
+  background-color: $color-bg;
 
   @include bp(sm) {
     padding: 24px 0;

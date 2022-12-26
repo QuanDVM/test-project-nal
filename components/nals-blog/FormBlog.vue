@@ -1,43 +1,41 @@
 <template>
   <div class="nals-form-blog">
-    <v-card class="nals-form-blog__main">
-      <the-form ref="form" v-model="formValid">
-        <form-item :label="$t('common.fields.title')" required>
-          <the-text-field
-            v-model="formBlog.title"
-            :maxlength="255"
-            :rules="rules.title"
-          />
-        </form-item>
+    <the-form ref="form" v-model="formValid">
+      <form-item :label="$t('common.fields.title')" required>
+        <the-text-field
+          v-model="formBlog.title"
+          :maxlength="255"
+          :rules="rules.title"
+        />
+      </form-item>
 
-        <form-item :label="$t('common.fields.content')" required>
-          <the-text-area
-            v-model="formBlog.content"
-            :maxlength="1000"
-            :rules="rules.content"
-          />
-        </form-item>
+      <form-item :label="$t('common.fields.content')" required>
+        <the-text-area
+          v-model="formBlog.content"
+          :maxlength="1000"
+          :rules="rules.content"
+        />
+      </form-item>
 
-        <form-item :label="$t('common.fields.thumbnail')">
-          <div>
-            <v-file-input
-              v-model="fileSelect"
-              :accept="Constants.common.IMAGE_UPLOAD.FILE_TYPE"
-              @click:clear="clearFileUpload"
-            ></v-file-input>
-          </div>
-          <div v-if="formBlog.imageUrl">
-            <v-img class="nals-form-blog__image" :src="formBlog.imageUrl">
-            </v-img>
-          </div>
-        </form-item>
-        <div class="nals-form-blog__action">
-          <the-button :loading="loading" color="primary" @click="submit">
-            {{ textButton }}
-          </the-button>
+      <form-item :label="$t('common.fields.thumbnail')">
+        <div>
+          <v-file-input
+            v-model="fileSelect"
+            :accept="Constants.common.IMAGE_UPLOAD.FILE_TYPE"
+            @click:clear="clearFileUpload"
+          ></v-file-input>
         </div>
-      </the-form>
-    </v-card>
+        <div v-if="formBlog.imageUrl">
+          <v-img class="nals-form-blog__image" :src="formBlog.imageUrl">
+          </v-img>
+        </div>
+      </form-item>
+      <div class="nals-form-blog__action">
+        <the-button :loading="loading" color="primary" @click="submit">
+          {{ textButton }}
+        </the-button>
+      </div>
+    </the-form>
   </div>
 </template>
 

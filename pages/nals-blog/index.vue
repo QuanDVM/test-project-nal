@@ -1,56 +1,57 @@
 <template>
   <div class="nals-blog">
     <the-container>
-      <the-heading>{{ $t('nalsBlogPage.heading') }}</the-heading>
+      <the-card>
+        <the-heading>{{ $t('nalsBlogPage.heading') }}</the-heading>
 
-      <div>
-        <the-form ref="form" class="mt-6">
-          <the-text-field
-            v-model="form.search"
-            :maxlength="255"
-            @input="search"
-          />
-        </the-form>
-      </div>
-
-      <div class="nals-blog__action">
-        <the-button color="primary" @click="goToAdd">{{
-          $t('common.action.add')
-        }}</the-button>
-
-        <div class="nals-blog__sort">
-          <the-select
-            v-model="orderSelected"
-            :items="orders"
-            @change="search"
-          />
+        <div>
+          <the-form ref="form" class="mt-6">
+            <the-text-field
+              v-model="form.search"
+              :maxlength="255"
+              @input="search"
+            />
+          </the-form>
         </div>
-      </div>
-      <v-card class="nals-blog__main">
-        <v-row v-if="loading">
-          <v-col cols="12" sm="4">
-            <v-skeleton-loader
-              class="mx-auto"
-              type="image, list-item-three-line"
-            ></v-skeleton-loader>
-          </v-col>
-        </v-row>
-        <v-row v-else>
-          <v-col v-for="blog in blogs" :key="blog.id" cols="12" sm="4">
-            <card-blog :item="blog" />
-          </v-col>
-        </v-row>
 
-        {{ paginationLength }}
-        <div v-if="paginationLength" class="nals-blog__main">
-          <v-pagination
-            v-model="pageInfo.currentPage"
-            :length="paginationLength"
-            :total-visible="pageInfo.total"
-            @change="fetchData"
-          />
+        <div class="nals-blog__action">
+          <the-button color="primary" inline @click="goToAdd">{{
+            $t('common.action.add')
+          }}</the-button>
+
+          <div class="nals-blog__sort">
+            <the-select
+              v-model="orderSelected"
+              :items="orders"
+              @change="search"
+            />
+          </div>
         </div>
-      </v-card>
+        <div class="nals-blog__main">
+          <v-row v-if="loading">
+            <v-col cols="12" sm="4">
+              <v-skeleton-loader
+                class="mx-auto"
+                type="image, list-item-three-line"
+              ></v-skeleton-loader>
+            </v-col>
+          </v-row>
+          <v-row v-else>
+            <v-col v-for="blog in blogs" :key="blog.id" cols="12" sm="4">
+              <card-blog :item="blog" />
+            </v-col>
+          </v-row>
+
+          <div v-if="paginationLength" class="nals-blog__main">
+            <v-pagination
+              v-model="pageInfo.currentPage"
+              :length="paginationLength"
+              :total-visible="pageInfo.total"
+              @change="fetchData"
+            />
+          </div>
+        </div>
+      </the-card>
     </the-container>
   </div>
 </template>

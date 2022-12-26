@@ -1,0 +1,7 @@
+.card {
+  padding: 12px;
+
+  @include bp(sm) {
+    padding: 24px;
+  }
+}
