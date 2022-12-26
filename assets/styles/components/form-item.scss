@@ -26,11 +26,6 @@
       line-height: 40px;
     }
 
-    @include bp(md) {
-      width: 280px;
-      max-width: 280px;
-    }
-
     &--spacing {
       display: flex;
       justify-content: space-between;

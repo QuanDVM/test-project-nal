@@ -56,6 +56,7 @@ export default {
   plugins: [
     { src: '@/plugins/apexchart', ssr: false },
     '@/plugins/lodash',
+    '@/plugins/string-format',
     '@/plugins/constants',
     '@/plugins/numeral',
     '@/plugins/utils',

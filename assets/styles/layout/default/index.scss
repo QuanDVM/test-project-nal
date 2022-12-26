@@ -1,0 +1,7 @@
+.layout-default {
+  padding: 12px 0;
+
+  @include bp(sm) {
+    padding: 24px 0;
+  }
+}

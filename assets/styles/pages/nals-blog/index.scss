@@ -1,0 +1,25 @@
+.nals-blog {
+  &__main {
+    padding: 12px;
+    margin-top: 24px;
+
+    @include bp(sm) {
+      padding: 24px;
+      margin-top: 48px;
+    }
+  }
+
+  &__action {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 24px;
+
+    @include bp(sm) {
+      margin-top: 48px;
+    }
+  }
+
+  &__sort {
+    width: 200px;
+  }
+}

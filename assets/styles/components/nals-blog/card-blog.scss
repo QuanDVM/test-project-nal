@@ -1,0 +1,25 @@
+.nals-card-blog {
+  &__image {
+    height: 200px;
+
+    ::v-deep .v-responsive__content {
+      display: flex;
+      justify-content: flex-end;
+      flex-direction: column;
+      padding: 12px;
+
+      @include bp(sm) {
+        padding: 24px;
+      }
+    }
+  }
+
+  &__title {
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  &__content {
+    min-height: 74px;
+  }
+}
