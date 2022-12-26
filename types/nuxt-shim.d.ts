@@ -30,3 +30,14 @@ declare module 'vuex/types/index' {
     $format: typeof format
   }
 }
+
+declare module '@nuxt/types' {
+  interface Context {
+    $_: LoDashStatic
+    $cookies: NuxtCookies
+    Utils: UtilsProps
+    $numeral: typeof numeral
+    Constants: ConstantsProps
+    $repo: RepositoryProps
+  }
+}
