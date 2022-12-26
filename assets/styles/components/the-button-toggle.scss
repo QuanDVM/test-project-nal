@@ -1,0 +1,44 @@
+::v-deep.theme {
+  &--light.the-button-toggle {
+    /* stylelint-disable-next-line selector-class-pattern */
+    &:not(.v-btn-toggle--group) {
+      .v-btn {
+        &.v-btn {
+          @apply tw-border-primary #{!important};
+        }
+      }
+    }
+
+    &.v-item-group {
+      .v-btn {
+        &.v-btn {
+          &--has-bg {
+            @apply tw-bg-white tw-text-primary;
+
+            .v-btn {
+              &__content {
+                @apply tw-font-normal;
+              }
+            }
+
+            &.v-item {
+              &--active {
+                @apply tw-text-white tw-bg-primary;
+
+                .v-btn {
+                  &__content {
+                    @apply tw-font-bold;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        &--active::before {
+          content: none;
+        }
+      }
+    }
+  }
+}

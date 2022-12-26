@@ -1,0 +1,41 @@
+.upload {
+  display: inline-block;
+  cursor: pointer;
+
+  &__content {
+    * {
+      pointer-events: none !important;
+    }
+  }
+
+  &__dropzone {
+    @apply tw-bg-gray-100;
+
+    width: 210px;
+    height: 137px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.is-dragging {
+      @apply tw-border-dashed;
+
+      &,
+      & i {
+        @apply tw-border-2 tw-border-primary tw-text-primary;
+      }
+    }
+  }
+
+  &__file {
+    display: none;
+  }
+
+  &.is-readonly {
+    cursor: default;
+  }
+
+  &.is-disabled {
+    cursor: not-allowed;
+  }
+}

@@ -1,0 +1,19 @@
+::v-deep.the-radio {
+  &.v-radio {
+    .v-label {
+      @apply tw-text-black;
+    }
+  }
+
+  &--position-top {
+    align-items: flex-start;
+  }
+
+  &--position-center {
+    align-items: center;
+  }
+
+  &--position-bottom {
+    align-items: flex-end;
+  }
+}

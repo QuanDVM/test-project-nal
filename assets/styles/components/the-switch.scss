@@ -1,0 +1,14 @@
+::v-deep.v-input {
+  &.v-input {
+    &--selection-controls {
+      margin-top: 0;
+
+      & .v-input {
+        &--selection-controls__input {
+          margin-right: 0;
+          width: 44px;
+        }
+      }
+    }
+  }
+}

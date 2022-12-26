@@ -1,0 +1,20 @@
+.the-tag {
+  display: inline-block;
+  margin-right: 12px;
+  max-width: 100%;
+  min-width: 80px;
+  padding: 4px;
+  text-align: center;
+  margin-top: 12px;
+
+  @include bp(md) {
+    min-width: 90px;
+  }
+
+  &__description {
+    @apply tw-text-white;
+
+    font-size: 12px;
+    font-weight: normal;
+  }
+}

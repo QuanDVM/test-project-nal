@@ -1,0 +1,17 @@
+.the-profile-dropdown {
+  &__info {
+    margin-left: 40px;
+
+    @include flexbox(row, center);
+
+    &__name {
+      margin-left: 8px;
+      font-weight: bold;
+      max-width: 400px;
+    }
+
+    ::v-deep.text-ellipsis {
+      max-width: 300px;
+    }
+  }
+}

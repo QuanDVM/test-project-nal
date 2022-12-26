@@ -1,0 +1,35 @@
+::v-deep.the-checkbox {
+  display: inline-flex;
+
+  &.v-input.v-input {
+    &--checkbox {
+      .v-label {
+        @apply tw-text-black;
+      }
+    }
+  }
+
+  &--position-top {
+    & .v-input {
+      &__slot {
+        align-items: flex-start;
+      }
+    }
+  }
+
+  &--position-center {
+    & .v-input {
+      &__slot {
+        align-items: center;
+      }
+    }
+  }
+
+  &--position-bottom {
+    & .v-input {
+      &__slot {
+        align-items: flex-end;
+      }
+    }
+  }
+}

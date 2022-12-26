@@ -1,0 +1,53 @@
+.theme {
+  &--light {
+    &.v-input {
+      .v-text-field {
+        &__details {
+          padding: 0;
+        }
+      }
+
+      .v-messages {
+        &__message {
+          font-weight: bold;
+          line-height: 16px;
+        }
+      }
+
+      &--is-disabled {
+        @apply tw-bg-black tw-bg-opacity-[0.06] tw-text-black #{!important};
+
+        opacity: 0.87;
+        border: none;
+
+        .v-input {
+          &__slot {
+            fieldset {
+              border: none;
+
+              @apply tw-bg-black tw-bg-opacity-[0.06] tw-text-black;
+            }
+
+            input {
+              @apply tw-text-black tw-text-opacity-[0.87];
+            }
+          }
+        }
+
+        .v-select {
+          &__selection {
+            &--disabled {
+              @apply tw-text-black #{!important};
+            }
+          }
+        }
+      }
+    }
+
+    &.v-menu {
+      &__content {
+        max-width: 0;
+      }
+    }
+  }
+}

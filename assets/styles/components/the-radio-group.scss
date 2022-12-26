@@ -1,0 +1,12 @@
+::v-deep.v-input.v-input {
+  &--radio-group {
+    margin-top: 0;
+  }
+
+  .v-messages {
+    &__message {
+      font-weight: bold;
+      line-height: 16px;
+    }
+  }
+}

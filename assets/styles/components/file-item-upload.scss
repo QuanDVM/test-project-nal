@@ -1,0 +1,17 @@
+.file-item-upload {
+  &__data {
+    display: flex;
+    overflow: hidden;
+    border-bottom: 1px solid rgb(0 0 0 / 50%);
+    justify-content: space-between;
+
+    &__icon {
+      cursor: pointer;
+    }
+  }
+
+  &__btn {
+    font-size: 14px;
+    max-width: 212px;
+  }
+}

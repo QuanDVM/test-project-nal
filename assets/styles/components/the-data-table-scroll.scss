@@ -1,0 +1,66 @@
+.the-data-table-scroll {
+  border: 1px solid rgb(0 0 0 / 10%);
+  border-radius: 4px;
+  max-height: 550px;
+  max-width: 100%;
+  overflow: auto;
+  padding: 24px;
+
+  @include bp(md) {
+    padding: 32px 20px 0;
+    max-height: 700px;
+  }
+
+  &.clickable {
+    ::v-deep {
+      tbody tr td {
+        @apply tw-cursor-pointer;
+      }
+    }
+  }
+
+  ::v-deep .v-data-table {
+    &__wrapper {
+      thead tr {
+        td {
+          padding: 0;
+          padding-bottom: 20px;
+        }
+
+        span {
+          @apply tw-text-neutral-800;
+
+          font-weight: bold;
+          font-size: 14px;
+        }
+      }
+
+      tbody tr {
+        td {
+          padding: 16px;
+
+          a {
+            @apply tw-text-black;
+          }
+        }
+
+        &:first-child td {
+          @apply tw-border-black;
+
+          border-top: 1px solid;
+        }
+
+        td:not(:last-child) {
+          padding-right: 40px;
+        }
+
+        td:first-child {
+          @apply tw-text-black;
+
+          font-weight: normal;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

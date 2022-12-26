@@ -1,0 +1,65 @@
+::v-deep .the-date-range-picker {
+  &__cols {
+    padding: 0;
+
+    @include flexbox(row, center, center);
+  }
+
+  &__input {
+    border: 1px solid rgb(0 0 0 / 38%);
+    border-radius: 4px;
+
+    .v-input {
+      &__control {
+        fieldset {
+          border: none;
+        }
+      }
+    }
+
+    &--right {
+      border-right: 0;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+
+      .v-input {
+        &__append-inner {
+          display: none;
+        }
+      }
+    }
+
+    &--left {
+      border-left: 0;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+
+      input {
+        text-align: right;
+      }
+    }
+  }
+
+  &__symbol {
+    border: 1px solid rgb(0 0 0 / 38%);
+    border-left: none;
+    border-right: none;
+    font-size: 16px;
+    height: 100%;
+
+    @include flexbox(row, center);
+    @apply tw-text-gray-500;
+  }
+
+  &__picker {
+    .v-picker {
+      &__title {
+        &__btn {
+          &--active {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
