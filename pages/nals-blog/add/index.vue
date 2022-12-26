@@ -1,9 +1,7 @@
 <template>
   <div class="nals-blog">
     <the-container>
-      <the-heading class="tw-mt-[36px]">{{
-        $t('nalsBlogAddPage.heading')
-      }}</the-heading>
+      <the-heading>{{ $t('nalsBlogAddPage.heading') }}</the-heading>
 
       <form-blog is-add :blog.sync="form" @submit="add"></form-blog>
     </the-container>

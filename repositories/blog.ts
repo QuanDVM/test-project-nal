@@ -6,6 +6,9 @@ import { Blog } from '@/models/blog'
 interface BlogPayload {
   _page: number
   _limit: number
+  _sort: string
+  _order: string
+  q?: string
 }
 
 const getBlogList = (payload: BlogPayload) =>

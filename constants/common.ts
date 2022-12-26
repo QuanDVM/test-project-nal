@@ -1,7 +1,20 @@
 export interface ConstantCommonProps {
   LOCALE: 'ja'
 
-  EMPTY_STRING: string
+  SORT_ORDER: {
+    ASC: 'asc'
+    DESC: 'desc'
+  }
+
+  PAGE_DEFAULT: {
+    TOTAL: number
+    LIMIT: number
+    CURRENT_PAGE: number
+  }
+
+  BLOG: {
+    SORT_BY: string
+  }
 
   DATE_TIME_SLASH: string
 
@@ -12,11 +25,6 @@ export interface ConstantCommonProps {
   DATE_TIME_FORMAT_HYPEN: string
 
   PAGE_SIZES: Array<number>
-
-  SORT_ORDER: {
-    ASC: 'asc'
-    DESC: 'desc'
-  }
 
   DATE_FORMAT: string
 
@@ -36,7 +44,15 @@ export interface ConstantCommonProps {
 }
 
 const constants: ConstantCommonProps = {
-  EMPTY_STRING: '-',
+  PAGE_DEFAULT: {
+    TOTAL: 10,
+    LIMIT: 9,
+    CURRENT_PAGE: 1,
+  },
+
+  BLOG: {
+    SORT_BY: 'title',
+  },
 
   DATE_TIME_SLASH: 'YYYY/MM/DD',
 

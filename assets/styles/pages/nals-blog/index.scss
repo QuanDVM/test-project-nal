@@ -12,14 +12,29 @@
   &__action {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
     margin-top: 24px;
+    text-align: center;
 
     @include bp(sm) {
       margin-top: 48px;
+      flex-direction: row;
     }
   }
 
   &__sort {
-    width: 200px;
+    margin-top: 12px;
+    @include bp(sm) {
+      margin-top: 0;
+      width: 200px;
+    }
+  }
+
+  &__pagination {
+    margin-top: 12px;
+
+    @include bp(sm) {
+      margin-top: 24px;
+    }
   }
 }

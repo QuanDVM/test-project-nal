@@ -1,9 +1,7 @@
 <template>
   <div class="nals-blog">
     <the-container>
-      <the-heading class="tw-mt-[36px]">{{
-        $t('nalsBlogPage.heading')
-      }}</the-heading>
+      <the-heading>{{ $t('nalsBlogPage.heading') }}</the-heading>
 
       <div>
         <the-form ref="form" class="tw-mt-6">
@@ -22,9 +20,9 @@
 
         <div class="nals-blog__sort">
           <the-select
-            v-model="sortSelected"
-            :items="sorts"
-            @change="searchBysort"
+            v-model="orderSelected"
+            :items="orders"
+            @change="search"
           />
         </div>
       </div>
@@ -43,7 +41,7 @@
           </v-col>
         </v-row>
 
-        <div class="tw-mt-6">
+        <div class="nals-blog__main">
           <v-pagination
             v-model="pageInfo.currentPage"
             :length="paginationLength"
@@ -67,8 +65,8 @@ interface DataProps {
   form: {
     search: string
   }
-  sorts: Array<OptionsProps>
-  sortSelected: string
+  orders: Array<OptionsProps>
+  orderSelected: string
 
   pageInfo: {
     total: number
@@ -90,7 +88,7 @@ export default Vue.extend({
         search: '',
       },
 
-      sorts: [
+      orders: [
         {
           value: this.Constants.common.SORT_ORDER.ASC,
           text: 'last',
@@ -101,11 +99,11 @@ export default Vue.extend({
         },
       ],
 
-      sortSelected: this.Constants.common.SORT_ORDER.ASC,
+      orderSelected: this.Constants.common.SORT_ORDER.ASC,
       pageInfo: {
-        total: 10,
-        limit: 5,
-        currentPage: 1,
+        total: this.Constants.common.PAGE_DEFAULT.TOTAL,
+        limit: this.Constants.common.PAGE_DEFAULT.LIMIT,
+        currentPage: this.Constants.common.PAGE_DEFAULT.CURRENT_PAGE,
       },
 
       loading: true,
@@ -126,12 +124,22 @@ export default Vue.extend({
     async fetchData() {
       try {
         this.loading = true
-        const data = (await this.$repo.blog.getBlogList({
+        const { data, headers } = (await this.$repo.blog.getBlogList({
           _page: this.pageInfo.currentPage,
           _limit: this.pageInfo.limit,
+          _sort: this.Constants.common.BLOG.SORT_BY,
+          _order: this.orderSelected,
+          ...(this.form.search && { q: this.form.search }),
         })) as any
 
-        console.log(data)
+        this.pageInfo = {
+          ...this.pageInfo,
+          ...{
+            total: Number(headers.xTotalCount),
+            limit: this.Constants.common.PAGE_DEFAULT.LIMIT,
+          },
+        }
+
         this.blogs = data
       } catch (error: any) {
         console.log(error)
@@ -140,13 +148,19 @@ export default Vue.extend({
       }
     },
 
-    async search() {},
+    async search() {
+      await this.fetchData()
+
+      this.pageInfo = {
+        total: this.Constants.common.PAGE_DEFAULT.TOTAL,
+        limit: this.Constants.common.PAGE_DEFAULT.LIMIT,
+        currentPage: this.Constants.common.PAGE_DEFAULT.CURRENT_PAGE,
+      }
+    },
 
     goToAdd() {
       this.$router.push(this.Constants.routePage.BLOG_ADD)
     },
-
-    searchBysort() {},
   },
 })
 </script>

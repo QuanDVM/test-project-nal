@@ -1,6 +1,5 @@
 <template>
   <v-text-field
-    v-trim
     outlined
     hide-details="auto"
     dense
