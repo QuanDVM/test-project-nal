@@ -1,7 +1,7 @@
 import format from 'string-format'
 import { $axios, ApiResponse } from '@/utils/axios'
 import RouteApi from '@/constants/route-api'
-import { Blog } from '@/models/blog'
+import { Blog, BlogBase } from '@/models/blog'
 
 interface BlogPayload {
   _page: number
@@ -16,7 +16,7 @@ const getBlogList = (payload: BlogPayload) =>
     params: payload,
   }) as Promise<ApiResponse<Array<Blog>>>
 
-const addBlog = (payload: Blog) =>
+const addBlog = (payload: BlogBase) =>
   $axios.post(RouteApi.BLOG, payload) as Promise<ApiResponse>
 
 const getDetailBlog = (id: string | number) =>
@@ -30,7 +30,7 @@ const updateBlog = (id: string | number, payload: Blog) =>
 
 export type RepoBlogProps = {
   getBlogList: (payload: BlogPayload) => Promise<ApiResponse<Array<Blog>>>
-  addBlog: (payload: Blog) => Promise<ApiResponse>
+  addBlog: (payload: BlogBase) => Promise<ApiResponse>
   getDetailBlog: (id: string | number) => Promise<ApiResponse<Blog>>
   updateBlog: (id: string | number, payload: Blog) => Promise<ApiResponse>
 }

@@ -41,6 +41,7 @@
           </v-col>
         </v-row>
 
+        {{ paginationLength }}
         <div v-if="paginationLength" class="nals-blog__main">
           <v-pagination
             v-model="pageInfo.currentPage"
@@ -141,15 +142,15 @@ export default Vue.extend({
           ...(this.form.search && { q: this.form.search }),
         })) as any
 
-        console.log(headers)
-        if (!this.pageInfo.total)
-          this.pageInfo = {
-            ...this.pageInfo,
-            ...{
-              total: Number(headers.xTotalCount),
-              limit: this.Constants.common.PAGE_DEFAULT.LIMIT,
-            },
-          }
+        console.log(this.pageInfo.total)
+
+        this.pageInfo = {
+          ...this.pageInfo,
+          ...{
+            total: Number(headers.xTotalCount),
+            limit: this.Constants.common.PAGE_DEFAULT.LIMIT,
+          },
+        }
 
         this.blogs = data
       } catch (error: any) {
@@ -163,9 +164,11 @@ export default Vue.extend({
       await this.fetchData()
 
       this.pageInfo = {
-        total: this.Constants.common.PAGE_DEFAULT.TOTAL,
-        limit: this.Constants.common.PAGE_DEFAULT.LIMIT,
-        currentPage: this.Constants.common.PAGE_DEFAULT.CURRENT_PAGE,
+        ...this.pageInfo,
+        ...{
+          limit: this.Constants.common.PAGE_DEFAULT.LIMIT,
+          currentPage: this.Constants.common.PAGE_DEFAULT.CURRENT_PAGE,
+        },
       }
     },
 
